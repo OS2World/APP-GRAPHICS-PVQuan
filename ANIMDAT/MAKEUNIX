@@ -1,0 +1,23 @@
+# Makefile for ANIMDAT for GNU gcc on Sun sparcstation
+
+CFLAGS = -c -O -Dsparc
+CC = gcc
+
+.c.o:
+	$(CC) -c $<
+
+OBJS = animdat.o error.o scanner.o btree.o symtab.o
+
+../bin/animdat: $(OBJS)
+	$(CC) $(OBJS) -o ../bin/animdat -lm
+
+animdat.o:	animdat.c common.h
+	$(CC) $(CFLAGS) animdat.c
+
+error.o:	error.c common.h error.h
+
+scanner.o:	scanner.c common.h scanner.h
+
+btree.o:	btree.c common.h scanner.h btree.h symtab.h
+
+symtab.o:	symtab.c common.h scanner.h btree.h symtab.h

@@ -1,0 +1,44 @@
+# Turbo-Make / UNIX Makefile for ANIMDAT by F van der Hulst
+
+# Turbo C stuff
+
+TARGET = ..\bin\animdat.exe
+CC     =d:\tc\bin\tcc
+OBJ    =obj
+LINK   = d:\tc\bin\tlink
+OBJS = animdat.$(OBJ) error.$(OBJ) scanner.$(OBJ) btree.$(OBJ) symtab.$(OBJ)
+CFLAGS =-mc -1 -a -K -G -O -Z -r -c -k- -N- -v- -C -Id:\tc\include -w
+LFLAGS = /c d:\tc\lib\c0c $(OBJS), $(TARGET), NUL, @link.cmd
+
+
+# Following are for SCO Unix:
+# CC     = cc
+# LINK   = cc
+# OBJ    = o
+# CFLAGS = -c -M3 -J -Ox
+# LFLAGS = -o ../bin/octree -Ox -lm
+
+# Following are for GNU:
+# CC     = gcc
+# LINK   = gcc
+# OBJ    = o
+# CFLAGS = -ansi -c -O -I/usr/lib/gcc-include -Dsparc
+# LFLAGS = -o $(TARGET) -lm
+
+# Implicit rules for making an object file from a .C file...
+#
+.c.$(OBJ) :
+	$(CC) $(CFLAGS) $*.c
+
+$(TARGET) : $(OBJS)
+        $(LINK) $(LFLAGS)
+
+animdat.$(OBJ):      animdat.c common.h
+
+error.$(OBJ):        error.c common.h error.h
+
+scanner.$(OBJ):      scanner.c common.h scanner.h
+
+btree.$(OBJ):        btree.c common.h scanner.h btree.h symtab.h
+
+symtab.$(OBJ):       symtab.c common.h scanner.h btree.h symtab.h

@@ -1,0 +1,24 @@
+# IBM Developer's Workframe/2 Make File Creation run at 15:56:34 on 11/30/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\FLILIB;
+
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+ALL:      BRUN.OBJ \
+     COMPFRAM.OBJ \
+     COPYSCRE.OBJ \
+     CREATFLI.OBJ \
+     FCCOMP.OBJ \
+     FLIERR.OBJ \
+     LCCOMP.OBJ \
+     MEMSCREE.OBJ \
+     STR_LOW.OBJ
+
+
+{.}.c.obj:
+   ICC.EXE /Sm /Q /G4 /C .\$*.c
+
+!include MAKEFILE.DEP

@@ -1,0 +1,34 @@
+# IBM Developer's Workframe/2 Make File Creation run at 15:43:45 on 10/23/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\ANIMDAT;
+
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+animdat.exe:  \
+  ANIMDAT.OBJ \
+  BTREE.OBJ \
+  ERROR.OBJ \
+  SCANNER.OBJ \
+  SYMTAB.OBJ \
+  MAKEFILE
+   @REM @<<ANIMDAT.@0
+     /NOI /NOL /PM:VIO +
+     ANIMDAT.OBJ +
+     BTREE.OBJ +
+     ERROR.OBJ +
+     SCANNER.OBJ +
+     SYMTAB.OBJ
+     animdat.exe
+     
+     
+     ;
+<<
+   LINK386.EXE @ANIMDAT.@0
+
+{.}.c.obj:
+   ICC.EXE /Sm /Q /G4 /C .\$*.c
+
+!include MAKEFILE.DEP

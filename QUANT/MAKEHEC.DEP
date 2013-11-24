@@ -1,0 +1,55 @@
+# IBM Developer's Workframe/2 Make File Creation run at 13:38:05 on 10/23/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\QUANT;
+
+# Assumed INCLUDE environment variable path:
+#   E:\TOOLKT20\C\OS2H;
+#   E:\TOOLKT20\ASM\OS2INC;
+#   E:\IBMC\INCLUDE;
+
+
+FILES.OBJ:  FILES.C  \
+#  {e:\quant\giflib;$(INCLUDE);}string.h  \
+#  {e:\quant\giflib;$(INCLUDE);}dos.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}gif_lib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+#    {e:\quant\giflib;$(INCLUDE);}vga.h  \
+   MAKEFILE.HEC
+
+HECKBERT.OBJ:  HECKBERT.C  \
+#  {e:\quant\giflib;$(INCLUDE);}mem.h  \
+#  {e:\quant\giflib;$(INCLUDE);}math.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+#    {e:\quant\giflib;$(INCLUDE);}vga.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}heckbert.h  \
+   MAKEFILE.HEC
+
+QUANT.OBJ:  QUANT.C  \
+#  {e:\quant\giflib;$(INCLUDE);}string.h  \
+#  {e:\quant\giflib;$(INCLUDE);}ctype.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+#    {e:\quant\giflib;$(INCLUDE);}vga.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}heckbert.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}octree.h  \
+   MAKEFILE.HEC
+
+VIRT_MEM.OBJ:  VIRT_MEM.C  \
+#  {e:\quant\giflib;$(INCLUDE);}mem.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+#    {e:\quant\giflib;$(INCLUDE);}vga.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}heckbert.h  \
+   MAKEFILE.HEC

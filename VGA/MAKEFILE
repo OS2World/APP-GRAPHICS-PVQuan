@@ -1,0 +1,25 @@
+# Turbo-Make Makefile for VGA library by F van der Hulst
+
+# Turbo C stuff
+
+CC     =d:\tc\bin\tcc
+CFLAGS =-mc -1 -a -r -K -G -O -Z -d -c -k- -N- -v- -C -Id:\tc\include -w
+
+# Implicit rules for making an object file from a .C file...
+#
+.c.obj :
+	$(CC) $(CFLAGS) $*.c
+
+OBJS = vga200.obj vga400.obj vga_pal.obj vga_retr.obj
+
+vga.lib : $(OBJS)
+        del ..\vga.lib
+        d:\tc\bin\tlib /C ..\vga.lib +vga200 +vga400 +vga_pal +vga_retr
+
+vga200.obj    : vga200.c  vga.h
+
+vga400.obj    : vga400.c  vga.h
+
+vga_pal.obj   : vga_pal.c  vga.h
+
+vga_retr.obj  : vga_retr.c vga.h

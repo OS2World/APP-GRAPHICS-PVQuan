@@ -1,0 +1,20 @@
+# Turbo-Make Makefile for PVRAY Quantizer display program by F van der Hulst
+
+# Turbo C stuff
+
+CC     =d:\tc\bin\tcc
+OBJ    =obj
+LINK   =d:\tc\bin\tlink /c
+CFLAGS =-mc -1 -a -K -G -O -Z -d -c -k- -N- -v- -p -C -Id:\tc\include -I..\vga -w
+
+# Implicit rules for making an object file from a .C file...
+#
+.c.obj :
+	$(CC) $(CFLAGS) $*.c
+
+OBJS = display.obj
+
+..\bin\display.exe : $(OBJS)
+        $(LINK) d:\tc\lib\c0c $(OBJS),..\bin\display,nul,d:\tc\lib\emu+d:\tc\lib\cc+..\vga;
+
+display.obj    : display.c

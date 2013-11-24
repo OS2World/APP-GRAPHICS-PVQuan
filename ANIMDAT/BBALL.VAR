@@ -1,0 +1,37 @@
+num_scenes = 26
+
+			{ the light source }
+light_x = 3.0
+light_y = 3.0
+light_z = -2.0
+
+
+			{ the ball}
+pi = 3.141592654
+
+x_size = 1.0 / y_size
+y_size = s1_ball_y * (time < time_contact) + s2_ball_y*(time >= time_contact)
+z_size = 1.0
+
+start_height = 1.8
+ball_z = 10.0
+ball_x = -2.2
+floor_height = -2.5
+height = start_height - (s1_ball_height * (time < time_contact) + s2_ball_height*(time >= time_contact))
+
+time_contact = (2/accel*(start_height - floor_height - 1))^(1/2)
+quarter_period = pi/(2*omega)
+time_final = time_contact + quarter_period
+time_inc = time_final / num_scenes
+time = time + time_inc, 0
+
+	{ stage 1 - the ball falling }
+accel = 9.81		{ acceleration due to gravity }
+s1_ball_height = 1/2 * accel * time^2
+s1_ball_y = 1.0
+
+
+	{ stage 2 - the ball compressing }
+omega = 17.0		{ natural frequency of oscillation of elastic ball }
+s2_ball_height = 0.5*accel*time_contact^2 + (accel*time_contact/omega)*sin(omega*(time-time_contact))
+s2_ball_y = 1/(height-floor_height)

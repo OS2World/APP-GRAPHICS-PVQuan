@@ -1,0 +1,42 @@
+# Turbo-Make / UNIX Makefile for GIF Library by F van der Hulst
+
+# Turbo C stuff
+
+CC     =d:\tc\bin\tcc
+OBJ    =obj
+LIB    =d:\tc\bin\tlib /C
+CFLAGS =-mc -1 -r -a -K -G -O -Z -d -c -k- -N- -v- -C -Id:\tc\include -w
+DEL    =del
+TARGET = ..\gif.lib
+
+# Following are for SCO Unix:
+# CC     = cc
+# LINK   = cc
+# OBJ    = o
+# CFLAGS = -c -M3 -J -Ox
+# LFLAGS = -o ../bin/octree -Ox -lm
+
+# Following are for GNU:
+# CC     = gcc
+# LINK   = gcc
+# DEL    = rm
+# LIB    = ar rv
+# OBJ    = o
+# CFLAGS = -ansi -c -O -I/usr/lib/gcc-include -Dsparc
+# LFLAGS = -o ../bin/octree /usr/lib/libm.a
+# TARGET = ../gif.lib
+
+# Implicit rules for making an object file from a .C file...
+#
+.c.$(OBJ) :
+	$(CC) $(CFLAGS) $*.c
+
+$(TARGET): dgif_lib.$(OBJ) egif_lib.$(OBJ) gif_hash.$(OBJ)
+        $(DEL) $(TARGET)
+        $(LIB) $(TARGET) +dgif_lib.$(OBJ) +egif_lib.$(OBJ) +gif_hash.$(OBJ)
+
+dgif_lib.$(OBJ):  dgif_lib.c gif_lib.h gif_hash.h
+
+egif_lib.$(OBJ):  egif_lib.c gif_lib.h gif_hash.h
+
+giyf_hash.$(OBJ):  gif_hash.c gif_hash.h

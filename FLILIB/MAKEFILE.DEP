@@ -1,0 +1,98 @@
+# IBM Developer's Workframe/2 Make File Creation run at 15:56:34 on 11/30/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\FLILIB;
+
+# Assumed INCLUDE environment variable path:
+#   E:\TOOLKT20\C\OS2H;
+#   E:\IBMC\INCLUDE;
+
+
+BRUN.OBJ:  BRUN.C  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   {.;$(INCLUDE);}aafli.h  \
+#    {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aafii.h  \
+   {.;$(INCLUDE);}aaflisav.h  \
+   MAKEFILE
+
+COMPFRAM.OBJ:  COMPFRAM.C  \
+#  {$(INCLUDE);}mem.h  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}aafli.h  \
+#    {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aaflisav.h  \
+   {.;$(INCLUDE);}aafii.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   MAKEFILE
+
+COPYSCRE.OBJ:  COPYSCRE.C  \
+#  {$(INCLUDE);}mem.h  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   MAKEFILE
+
+CREATFLI.OBJ:  CREATFLI.C  \
+#  {$(INCLUDE);}mem.h  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}aafli.h  \
+#    {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aaflisav.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   MAKEFILE
+
+FCCOMP.OBJ:  FCCOMP.C  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   {.;$(INCLUDE);}aafli.h  \
+#    {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aaflisav.h  \
+   {.;$(INCLUDE);}aafii.h  \
+   MAKEFILE
+
+FLIERR.OBJ:  FLIERR.C  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   MAKEFILE
+
+LCCOMP.OBJ:  LCCOMP.C  \
+#  {$(INCLUDE);}mem.h  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aaerr.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   {.;$(INCLUDE);}aafli.h  \
+#    {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aaflisav.h  \
+   {.;$(INCLUDE);}aafii.h  \
+   MAKEFILE
+
+MEMSCREE.OBJ:  MEMSCREE.C  \
+#  {$(INCLUDE);}mem.h  \
+#  {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   MAKEFILE
+
+STR_LOW.OBJ:  STR_LOW.C  \
+   {.;$(INCLUDE);}aatypes.h  \
+   {.;$(INCLUDE);}aascreen.h  \
+#    {$(INCLUDE);}stdlib.h  \
+   {.;$(INCLUDE);}str_low.h  \
+   MAKEFILE

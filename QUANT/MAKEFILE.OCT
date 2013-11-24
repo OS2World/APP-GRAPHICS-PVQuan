@@ -1,0 +1,32 @@
+# IBM Developer's Workframe/2 Make File Creation run at 16:05:23 on 11/30/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\QUANT;
+
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+OCTREE.EXE:  \
+  FILES.OBJ \
+  OCTREE.OBJ \
+  QUANT.OBJ \
+  MAKEFILE
+   @REM @<<OCTREE.@0
+     /NOI /NOL /PM:VIO +
+     FILES.OBJ +
+     OCTREE.OBJ +
+     QUANT.OBJ +
+     ..\GIFLIB\EGIF_LIB.OBJ +
+     ..\GIFLIB\GIF_HASH.OBJ
+     OCTREE.EXE
+     
+     
+     ;
+<<
+   LINK386.EXE @OCTREE.@0
+
+{.}.c.obj:
+   ICC.EXE /Ie:\quant\giflib /Q /C .\$*.c
+
+!include MAKEFILE.DEP

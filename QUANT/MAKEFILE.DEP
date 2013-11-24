@@ -1,0 +1,43 @@
+# IBM Developer's Workframe/2 Make File Creation run at 16:05:23 on 11/30/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\QUANT;
+
+# Assumed INCLUDE environment variable path:
+#   E:\TOOLKT20\C\OS2H;
+#   E:\IBMC\INCLUDE;
+
+
+FILES.OBJ:  FILES.C  \
+#  {e:\quant\giflib;$(INCLUDE);}string.h  \
+#  {e:\quant\giflib;$(INCLUDE);}dos.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}gif_lib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+     {.;e:\quant\giflib;$(INCLUDE);}..\vga\vga.h  \
+   MAKEFILE
+
+OCTREE.OBJ:  OCTREE.C  \
+#  {e:\quant\giflib;$(INCLUDE);}string.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+     {.;e:\quant\giflib;$(INCLUDE);}..\vga\vga.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}octree.h  \
+   MAKEFILE
+
+QUANT.OBJ:  QUANT.C  \
+#  {e:\quant\giflib;$(INCLUDE);}string.h  \
+#  {e:\quant\giflib;$(INCLUDE);}ctype.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}quant.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdio.h  \
+#    {e:\quant\giflib;$(INCLUDE);}stdlib.h  \
+#    {e:\quant\giflib;$(INCLUDE);}alloc.h  \
+     {.;e:\quant\giflib;$(INCLUDE);}..\vga\vga.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}heckbert.h  \
+   {.;e:\quant\giflib;$(INCLUDE);}octree.h  \
+   MAKEFILE

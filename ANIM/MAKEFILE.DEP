@@ -1,0 +1,27 @@
+# IBM Developer's Workframe/2 Make File Creation run at 14:34:42 on 10/27/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\ANIM;
+
+# Assumed INCLUDE environment variable path:
+#   E:\TOOLKT20\C\OS2H;
+#   E:\TOOLKT20\ASM\OS2INC;
+#   E:\IBMC\INCLUDE;
+
+
+ANIMFLI.OBJ:  ANIMFLI.C  \
+#  {e:\quant\flilib;$(INCLUDE);}stdlib.h  \
+#  {e:\quant\flilib;$(INCLUDE);}stdio.h  \
+#  {e:\quant\flilib;$(INCLUDE);}dos.h  \
+#  {e:\quant\flilib;$(INCLUDE);}mem.h  \
+#  {e:\quant\flilib;$(INCLUDE);}io.h  \
+#  {e:\quant\flilib;$(INCLUDE);}conio.h  \
+   {.;e:\quant\flilib;$(INCLUDE);}aatypes.h  \
+   {.;e:\quant\flilib;$(INCLUDE);}aascreen.h  \
+#    {e:\quant\flilib;$(INCLUDE);}stdlib.h  \
+   {.;e:\quant\flilib;$(INCLUDE);}aaerr.h  \
+   {.;e:\quant\flilib;$(INCLUDE);}aafli.h  \
+#    {e:\quant\flilib;$(INCLUDE);}stdio.h  \
+   {.;e:\quant\flilib;$(INCLUDE);}aaflisav.h  \
+ 
+

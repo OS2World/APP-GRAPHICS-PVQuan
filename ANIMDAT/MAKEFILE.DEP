@@ -1,0 +1,64 @@
+# IBM Developer's Workframe/2 Make File Creation run at 15:43:45 on 10/23/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\ANIMDAT;
+
+# Assumed INCLUDE environment variable path:
+#   E:\TOOLKT20\C\OS2H;
+#   E:\TOOLKT20\ASM\OS2INC;
+#   E:\IBMC\INCLUDE;
+
+
+ANIMDAT.OBJ:  ANIMDAT.C  \
+#  {$(INCLUDE);}stdio.h  \
+#  {$(INCLUDE);}string.h  \
+#  {$(INCLUDE);}ctype.h  \
+#  {$(INCLUDE);}math.h  \
+   {.;$(INCLUDE);}common.h  \
+     {.;$(INCLUDE);}error.h  \
+     {.;$(INCLUDE);}scanner.h  \
+     {.;$(INCLUDE);}btree.h  \
+     {.;$(INCLUDE);}symtab.h  \
+   MAKEFILE
+
+BTREE.OBJ:  BTREE.C  \
+#  {$(INCLUDE);}string.h  \
+#  {$(INCLUDE);}math.h  \
+#  {$(INCLUDE);}stdlib.h  \
+#  {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}common.h  \
+     {.;$(INCLUDE);}error.h  \
+     {.;$(INCLUDE);}scanner.h  \
+     {.;$(INCLUDE);}btree.h  \
+     {.;$(INCLUDE);}symtab.h  \
+   MAKEFILE
+
+ERROR.OBJ:  ERROR.C  \
+#  {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}common.h  \
+     {.;$(INCLUDE);}error.h  \
+     {.;$(INCLUDE);}scanner.h  \
+     {.;$(INCLUDE);}btree.h  \
+     {.;$(INCLUDE);}symtab.h  \
+   MAKEFILE
+
+SCANNER.OBJ:  SCANNER.C  \
+#  {$(INCLUDE);}ctype.h  \
+#  {$(INCLUDE);}string.h  \
+#  {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}common.h  \
+     {.;$(INCLUDE);}error.h  \
+     {.;$(INCLUDE);}scanner.h  \
+     {.;$(INCLUDE);}btree.h  \
+     {.;$(INCLUDE);}symtab.h  \
+   MAKEFILE
+
+SYMTAB.OBJ:  SYMTAB.C  \
+#  {$(INCLUDE);}string.h  \
+#  {$(INCLUDE);}stdio.h  \
+   {.;$(INCLUDE);}common.h  \
+     {.;$(INCLUDE);}error.h  \
+     {.;$(INCLUDE);}scanner.h  \
+     {.;$(INCLUDE);}btree.h  \
+     {.;$(INCLUDE);}symtab.h  \
+   MAKEFILE

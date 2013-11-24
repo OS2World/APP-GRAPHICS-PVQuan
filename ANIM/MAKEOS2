@@ -1,0 +1,36 @@
+# IBM Developer's Workframe/2 Make File Creation run at 14:34:42 on 10/27/92
+
+# Make File Creation run in directory:
+#   E:\QUANT\ANIM;
+
+.SUFFIXES:
+
+.SUFFIXES: .c
+
+animfli.exe:  \
+  ANIMFLI.OBJ \
+  MAKEFILE
+   @REM @<<MAKEANIM.@0
+     /NOI /NOL +
+     ANIMFLI.OBJ +
+     E:\QUANT\FLILIB\CREATFLI.OBJ +
+     E:\QUANT\FLILIB\MEMSCREE.OBJ +
+     E:\QUANT\FLILIB\FLIERR.OBJ +
+     E:\QUANT\FLILIB\COPYSCRE.OBJ +
+     E:\QUANT\FLILIB\COMPFRAM.OBJ +
+     E:\QUANT\FLILIB\BRUN.OBJ +
+     E:\QUANT\FLILIB\FCCOMP.OBJ +
+     E:\QUANT\FLILIB\LCCOMP.OBJ +
+     E:\QUANT\FLILIB\STR_LOW.OBJ 
+     animfli.exe
+     
+     
+     ;
+<<
+   LINK386.EXE @MAKEANIM.@0
+
+{.}.c.obj:
+   ICC.EXE /Ie:\quant\flilib /Sm /Q /G4 /C .\$*.c
+
+!include MAKEFILE.DEP
+

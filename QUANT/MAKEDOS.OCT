@@ -1,0 +1,39 @@
+# Turbo-Make / UNIX Makefile for PVRAY Quantizer by F van der Hulst
+
+# Turbo C stuff
+
+TARGET = ..\bin\octree.exe
+CC     =d:\tc\bin\tcc
+OBJ    =obj
+LINK   = d:\tc\bin\tlink
+OBJS = quant.$(OBJ) files.$(OBJ) octree.$(OBJ)
+CFLAGS =-mc -1 -a -K -G -O -Z -r -c -k- -N- -v- -C -Id:\tc\include -I..\giflib -w
+LFLAGS = /c d:\tc\lib\c0c $(OBJS), $(TARGET), nul, @link.oct
+
+# Following are for SCO Unix:
+# CC     = cc
+# LINK   = cc
+# OBJ    = o
+# CFLAGS = -c -M3 -J -Ox
+# LFLAGS = -o ../bin/octree -Ox -lm
+
+# Following are for GNU:
+# CC     = gcc
+# LINK   = gcc
+# OBJ    = o
+# CFLAGS = -ansi -c -O -I/usr/lib/gcc-include -Dsparc
+# LFLAGS = -o $(TARGET) /usr/lib/libm.a
+
+# Implicit rules for making an object file from a .C file...
+#
+.c.$(OBJ) :
+	$(CC) $(CFLAGS) $*.c
+
+$(TARGET) : $(OBJS) ..\vga.lib ..\gif.lib
+        $(LINK) $(LFLAGS)
+
+quant.$(OBJ)    : quant.c quant.h octree.h
+
+files.$(OBJ)    : files.c quant.h
+
+octree.$(OBJ) : octree.c quant.h

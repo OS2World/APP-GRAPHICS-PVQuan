@@ -1,0 +1,65 @@
+num_scenes = 142
+scene_num = scene_num + 1, 0
+rot_time	= 5
+cycle_dist	= 20
+
+rot_step_size	= 90 / rot_time
+food_x		= 90
+food1_z		= 100
+food2_z		= food1_z - cycle_dist
+food3_z		= food2_z - cycle_dist
+food4_z		= food3_z - cycle_dist
+food5_z		= food4_z - cycle_dist
+food6_z		= food5_z - cycle_dist
+food7_z 	= food6_z - cycle_dist
+food8_z		= food7_z - cycle_dist
+
+rot1_start      = 34
+rot1_end	= rot1_start + rot_time
+rot2_start      = rot1_end + 54
+rot2_end        = rot2_start + rot_time
+rot3_start      = rot2_end + 22
+rot3_end        = rot3_start + rot_time				
+
+act0		= scene_num < rot1_start
+trans01		= (scene_num >= rot1_start) * (scene_num < rot1_end)
+act1		= (scene_num >= rot1_end)   * (scene_num < rot2_start)
+trans12		= (scene_num >= rot2_start) * (scene_num < rot2_end)
+act2		= (scene_num >= rot2_end)   * (scene_num < rot3_start)
+trans23		= (scene_num >= rot3_start) * (scene_num < rot3_end)
+act3		=  scene_num >= rot3_end
+
+pac_z           = pac_z + (0 * act0) + (-3 * act1) + (0 * act2) + (-3 * act3), +140
+pac_x		= pac_x + (5 * act0) + ( 0 * act1) + (5 * act2) + ( 0 * act3), -80
+
+dir0            = act0 * -90
+dir1            = act1 *   0
+dir2            = act2 * -90
+dir3            = act3 *   0
+
+dir01		= trans01 * ((scene_num - rot1_start) *  rot_step_size - 90)
+dir12           = trans12 * ((scene_num - rot2_start) * -rot_step_size + 0)
+dir23 		= trans23 * ((scene_num - rot3_start) *  rot_step_size - 90)
+
+pac_dir		= dir0 + dir01 + dir1 + dir12 + dir2 + dir23 + dir3
+
+cycle_pos	= ((pac_z + pac_x + 1000) % cycle_dist) * act1
+
+lip_lower       = cycle_pos * -2.5
+lip_upper       = cycle_pos *  0.6
+
+f1_exists       = pac_z > food1_z - 18
+f2_exists	= pac_z > food2_z - 18
+f3_exists	= pac_z > food3_z - 18
+f4_exists	= pac_z > food4_z - 18
+f5_exists	= pac_z > food5_z - 18
+f6_exists	= (pac_z > food6_z - 18) * (act0 + trans01 + act1)
+f7_exists	= (pac_z > food7_z - 18) * (act0 + trans01 + act1)
+f8_exists	= (pac_z > food8_z - 18) * (act0 + trans01 + act1)
+
+l_eyebrow_angle = cycle_pos *  1.5 + 10.0
+r_eyebrow_angle = cycle_pos * -1.5 - 10.0
+
+l_eye_dir       = cycle_pos *  2.5 + 10.0
+r_eye_dir       = cycle_pos * -2.5 - 10.0
+

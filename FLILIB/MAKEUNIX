@@ -1,0 +1,50 @@
+# Turbo-Make Makefile for FLI library by F van der Hulst
+
+# Turbo C stuff
+# CC     =d:\tc\bin\tcc
+# OBJ    =obj
+# CFLAGS =-mc -1 -a -K -G -O -Z -d -c -k- -N- -v- -C -Id:\tc\include -w
+
+# Following are for SCO Unix:
+# CC     = cc
+# OBJ    = o
+# CFLAGS = -c -M3 -J -Ox
+
+# Following are for GNU:
+CC     = gcc
+OBJ    = o
+CFLAGS = -ansi -c -O -I/usr/lib/gcc-include -Dsparc
+
+# Implicit rules for making an object file from a .C file...
+
+.asm.$(OBJ):
+	d:\tasm\tasm /M5 /mx /z $*.asm;
+
+.c.$(OBJ) :
+	$(CC) $(CFLAGS) $*.c
+
+OBJS = str_low.$(OBJ) brun.$(OBJ) compfram.$(OBJ) copyscre.$(OBJ) \
+creatfli.$(OBJ) fccomp.$(OBJ) flierr.$(OBJ) lccomp.$(OBJ) memscree.$(OBJ)
+# clock.obj csetcolo.obj unlccomp.obj fcuncomp.obj unbrun.obj waitvbl.obj
+
+..\fli.lib: $(OBJS)
+	ar rv ../fli.lib $(OBJS)
+
+brun.$(OBJ)     : brun.c str_low.h aafli.h aatypes.h aascreen.h aaerr.h aaflisav.h aafii.h
+
+compfram.$(OBJ) : compfram.c aafli.h aatypes.h aascreen.h aaerr.h aaflisav.h aafii.h
+
+copyscre.$(OBJ) : copyscre.c aatypes.h aascreen.h
+
+creatfli.$(OBJ) : creatfli.c aafli.h aatypes.h aascreen.h aaerr.h aaflisav.h
+
+fccomp.$(OBJ)   : fccomp.c str_low.h aafli.h aatypes.h aascreen.h aaerr.h aaflisav.h aafii.h
+
+flierr.$(OBJ)   : flierr.c aatypes.h aaerr.h
+
+lccomp.$(OBJ)   : lccomp.c str_low.h aafli.h aatypes.h aascreen.h aaerr.h aaflisav.h aafii.h
+
+memscree.$(OBJ) : memscree.c aatypes.h aascreen.h
+
+str_low.$(OBJ)  : str_low.c str_low.h
+
